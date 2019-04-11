@@ -1,0 +1,62 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010C8158 .scope module, "inverter_tb" "inverter_tb" 2 16;
+ .timescale 0 0;
+v010CD900_0 .var "b", 3 0;
+v010CD9B0_0 .var "d", 0 0;
+RS_00FB40C4 .resolv tri, L_010CD850, L_010CDA60, L_010CD7A0, L_010CDBC0;
+v010CD538_0 .net8 "invb", 3 0, RS_00FB40C4; 4 drivers
+S_010C8620 .scope module, "myInverter" "inverter" 2 20, 2 1, S_010C8158;
+ .timescale 0 0;
+L_010C4778 .functor XOR 1, L_010CD590, v010CD9B0_0, C4<0>, C4<0>;
+L_010C9990 .functor XOR 1, L_010CDB10, v010CD9B0_0, C4<0>, C4<0>;
+L_010C34E8 .functor XOR 1, L_010CDB68, v010CD9B0_0, C4<0>, C4<0>;
+L_010CDF90 .functor XOR 1, L_010CD5E8, v010CD9B0_0, C4<0>, C4<0>;
+v010C4670_0 .net *"_s0", 0 0, L_010C4778; 1 drivers
+v010C46C8_0 .net *"_s11", 0 0, L_010CDB68; 1 drivers
+v010C4720_0 .net *"_s12", 0 0, L_010CDF90; 1 drivers
+v010C33E0_0 .net *"_s15", 0 0, L_010CD5E8; 1 drivers
+v010C3438_0 .net *"_s3", 0 0, L_010CD590; 1 drivers
+v010C3490_0 .net *"_s4", 0 0, L_010C9990; 1 drivers
+v010C97A8_0 .net *"_s7", 0 0, L_010CDB10; 1 drivers
+v010C9800_0 .net *"_s8", 0 0, L_010C34E8; 1 drivers
+v010C9858_0 .net "b", 3 0, v010CD900_0; 1 drivers
+v010CD7F8_0 .net "d", 0 0, v010CD9B0_0; 1 drivers
+v010CDAB8_0 .alias "invb", 3 0, v010CD538_0;
+L_010CD850 .part/pv L_010C4778, 3, 1, 4;
+L_010CD590 .part v010CD900_0, 3, 1;
+L_010CDA60 .part/pv L_010C9990, 2, 1, 4;
+L_010CDB10 .part v010CD900_0, 2, 1;
+L_010CD7A0 .part/pv L_010C34E8, 1, 1, 4;
+L_010CDB68 .part v010CD900_0, 1, 1;
+L_010CDBC0 .part/pv L_010CDF90, 0, 1, 4;
+L_010CD5E8 .part v010CD900_0, 0, 1;
+    .scope S_010C8158;
+T_0 ;
+    %vpi_call 2 27 "$monitor", "inputs:b3=%b,b2=%b,b1=%b,b0=%b,d=%b outputs:invb3=%b, invb2=%b, invb1=%b, invb0=%b", &PV<v010CD900_0, 3, 1>, &PV<v010CD900_0, 2, 1>, &PV<v010CD900_0, 1, 1>, &PV<v010CD900_0, 0, 1>, v010CD9B0_0, &PV<v010CD538_0, 3, 1>, &PV<v010CD538_0, 2, 1>, &PV<v010CD538_0, 1, 1>, &PV<v010CD538_0, 0, 1>;
+    %end;
+    .thread T_0;
+    .scope S_010C8158;
+T_1 ;
+    %set/v v010CD9B0_0, 1, 1;
+    %ix/load 0, 0, 0;
+    %cassign/x0 v010CD900_0, 1, 1;
+    %ix/load 0, 1, 0;
+    %cassign/x0 v010CD900_0, 0, 1;
+    %ix/load 0, 2, 0;
+    %cassign/x0 v010CD900_0, 1, 1;
+    %ix/load 0, 3, 0;
+    %cassign/x0 v010CD900_0, 1, 1;
+    %delay 10, 0;
+    %set/v v010CD9B0_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "inverter.v";

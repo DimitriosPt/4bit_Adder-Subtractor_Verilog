@@ -1,0 +1,95 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_008E81D8 .scope module, "PGU_tb" "PGU_tb" 2 31;
+ .timescale 0 0;
+v010FE8D0_0 .var "a", 3 0;
+v010FEB38_0 .var "b", 3 0;
+RS_01104234 .resolv tri, L_010FEBE8, L_010FF2C8, L_010FEDF8, L_010FF218;
+v010FECF0_0 .net8 "g", 3 0, RS_01104234; 4 drivers
+RS_0110424C .resolv tri, L_010FEEA8, L_010FEB90, L_010FF060, L_010FF0B8;
+v010FE928_0 .net8 "p", 3 0, RS_0110424C; 4 drivers
+S_008E7FB8 .scope module, "myPGU" "PGU" 2 35, 2 12, S_008E81D8;
+ .timescale 0 0;
+L_008E50E0 .functor XOR 1, L_010FF320, L_010FF270, C4<0>, C4<0>;
+L_008E34C0 .functor AND 1, L_010FE980, L_010FEAE0, C4<1>, C4<1>;
+L_008EAE20 .functor XOR 1, L_010FF008, L_010FED48, C4<0>, C4<0>;
+L_010FFA20 .functor AND 1, L_010FEC40, L_010FEC98, C4<1>, C4<1>;
+L_010FF978 .functor XOR 1, L_010FF168, L_010FEDA0, C4<0>, C4<0>;
+L_010FF9E8 .functor AND 1, L_010FEE50, L_010FEF00, C4<1>, C4<1>;
+L_010FFBA8 .functor XOR 1, L_010FF110, L_010FF1C0, C4<0>, C4<0>;
+L_01100418 .functor AND 1, L_010FF5E0, L_010FF638, C4<1>, C4<1>;
+v008EB7A8_0 .net *"_s0", 0 0, L_008E50E0; 1 drivers
+v008EB800_0 .net *"_s11", 0 0, L_010FEAE0; 1 drivers
+v008EB598_0 .net *"_s12", 0 0, L_008EAE20; 1 drivers
+v008EB858_0 .net *"_s15", 0 0, L_010FF008; 1 drivers
+v008EB280_0 .net *"_s17", 0 0, L_010FED48; 1 drivers
+v008EB648_0 .net *"_s18", 0 0, L_010FFA20; 1 drivers
+v008EB3E0_0 .net *"_s21", 0 0, L_010FEC40; 1 drivers
+v008EB438_0 .net *"_s23", 0 0, L_010FEC98; 1 drivers
+v008EB490_0 .net *"_s24", 0 0, L_010FF978; 1 drivers
+v008EB120_0 .net *"_s27", 0 0, L_010FF168; 1 drivers
+v008EB6F8_0 .net *"_s29", 0 0, L_010FEDA0; 1 drivers
+v008EB228_0 .net *"_s3", 0 0, L_010FF320; 1 drivers
+v008EB178_0 .net *"_s30", 0 0, L_010FF9E8; 1 drivers
+v008EB750_0 .net *"_s33", 0 0, L_010FEE50; 1 drivers
+v008EB4E8_0 .net *"_s35", 0 0, L_010FEF00; 1 drivers
+v008EB1D0_0 .net *"_s36", 0 0, L_010FFBA8; 1 drivers
+v008EB540_0 .net *"_s39", 0 0, L_010FF110; 1 drivers
+v008EB6A0_0 .net *"_s41", 0 0, L_010FF1C0; 1 drivers
+v008EB2D8_0 .net *"_s42", 0 0, L_01100418; 1 drivers
+v008EB388_0 .net *"_s45", 0 0, L_010FF5E0; 1 drivers
+v008EB330_0 .net *"_s47", 0 0, L_010FF638; 1 drivers
+v008EB5F0_0 .net *"_s5", 0 0, L_010FF270; 1 drivers
+v010FEA30_0 .net *"_s6", 0 0, L_008E34C0; 1 drivers
+v010FEFB0_0 .net *"_s9", 0 0, L_010FE980; 1 drivers
+v010FF378_0 .net "a", 3 0, v010FE8D0_0; 1 drivers
+v010FEF58_0 .net "b", 3 0, v010FEB38_0; 1 drivers
+v010FEA88_0 .alias "g", 3 0, v010FECF0_0;
+v010FE9D8_0 .alias "p", 3 0, v010FE928_0;
+L_010FEEA8 .part/pv L_008E50E0, 0, 1, 4;
+L_010FF320 .part v010FE8D0_0, 0, 1;
+L_010FF270 .part v010FEB38_0, 0, 1;
+L_010FEBE8 .part/pv L_008E34C0, 0, 1, 4;
+L_010FE980 .part v010FE8D0_0, 0, 1;
+L_010FEAE0 .part v010FEB38_0, 0, 1;
+L_010FEB90 .part/pv L_008EAE20, 1, 1, 4;
+L_010FF008 .part v010FE8D0_0, 1, 1;
+L_010FED48 .part v010FEB38_0, 1, 1;
+L_010FF2C8 .part/pv L_010FFA20, 1, 1, 4;
+L_010FEC40 .part v010FE8D0_0, 1, 1;
+L_010FEC98 .part v010FEB38_0, 1, 1;
+L_010FF060 .part/pv L_010FF978, 2, 1, 4;
+L_010FF168 .part v010FE8D0_0, 2, 1;
+L_010FEDA0 .part v010FEB38_0, 2, 1;
+L_010FEDF8 .part/pv L_010FF9E8, 2, 1, 4;
+L_010FEE50 .part v010FE8D0_0, 2, 1;
+L_010FEF00 .part v010FEB38_0, 2, 1;
+L_010FF0B8 .part/pv L_010FFBA8, 3, 1, 4;
+L_010FF110 .part v010FE8D0_0, 3, 1;
+L_010FF1C0 .part v010FEB38_0, 3, 1;
+L_010FF218 .part/pv L_01100418, 3, 1, 4;
+L_010FF5E0 .part v010FE8D0_0, 3, 1;
+L_010FF638 .part v010FEB38_0, 3, 1;
+    .scope S_008E81D8;
+T_0 ;
+    %vpi_call 2 38 "$monitor", "p[0]=%b,g[0]=%b,p[1]=%b,g[1]=%b,p[2]=%b,g[2]=%b,p[3]=%b,g[3]=%b", &PV<v010FE928_0, 0, 1>, &PV<v010FECF0_0, 0, 1>, &PV<v010FE928_0, 1, 1>, &PV<v010FECF0_0, 1, 1>, &PV<v010FE928_0, 2, 1>, &PV<v010FECF0_0, 2, 1>, &PV<v010FE928_0, 3, 1>, &PV<v010FECF0_0, 3, 1>;
+    %end;
+    .thread T_0;
+    .scope S_008E81D8;
+T_1 ;
+    %delay 10, 0;
+    %movi 8, 9, 4;
+    %set/v v010FE8D0_0, 8, 4;
+    %movi 8, 12, 4;
+    %set/v v010FEB38_0, 8, 4;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "PGU.v";

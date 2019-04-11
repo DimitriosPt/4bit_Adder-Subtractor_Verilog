@@ -1,0 +1,76 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_008182D8 .scope module, "SU_tb" "SU_tb" 2 24;
+ .timescale 0 0;
+v0081DB90_0 .var "c0", 0 0;
+v0081D9D8_0 .var "c1", 0 0;
+v0081DA30_0 .var "c2", 0 0;
+v0081DF00_0 .var "cin", 0 0;
+v0081DD48_0 .var "p", 3 0;
+RS_01014124 .resolv tri, L_0081DA88, L_0081DF58, L_0081DC40, L_0081DEA8;
+v0081DDA0_0 .net8 "s", 3 0, RS_01014124; 4 drivers
+S_00818D78 .scope module, "mySU" "SU" 2 29, 2 12, S_008182D8;
+ .timescale 0 0;
+L_00819600 .functor XOR 1, L_0081DBE8, v0081DA30_0, C4<0>, C4<0>;
+L_0081E1D0 .functor XOR 1, L_0081DDF8, v0081D9D8_0, C4<0>, C4<0>;
+L_00814898 .functor XOR 1, L_0081DC98, v0081DB90_0, C4<0>, C4<0>;
+L_0081E198 .functor XOR 1, L_0081DE50, v0081DF00_0, C4<0>, C4<0>;
+v00814790_0 .net *"_s0", 0 0, L_00819600; 1 drivers
+v008147E8_0 .net *"_s11", 0 0, L_0081DC98; 1 drivers
+v00814840_0 .net *"_s12", 0 0, L_0081E198; 1 drivers
+v008133E0_0 .net *"_s15", 0 0, L_0081DE50; 1 drivers
+v00813438_0 .net *"_s3", 0 0, L_0081DBE8; 1 drivers
+v00813490_0 .net *"_s4", 0 0, L_0081E1D0; 1 drivers
+v008194F8_0 .net *"_s7", 0 0, L_0081DDF8; 1 drivers
+v00819550_0 .net *"_s8", 0 0, L_00814898; 1 drivers
+v008195A8_0 .net "c0", 0 0, v0081DB90_0; 1 drivers
+v0081E060_0 .net "c1", 0 0, v0081D9D8_0; 1 drivers
+v0081D980_0 .net "c2", 0 0, v0081DA30_0; 1 drivers
+v0081DAE0_0 .net "cin", 0 0, v0081DF00_0; 1 drivers
+v0081DB38_0 .net "p", 3 0, v0081DD48_0; 1 drivers
+v0081E0B8_0 .alias "s", 3 0, v0081DDA0_0;
+L_0081DA88 .part/pv L_00819600, 3, 1, 4;
+L_0081DBE8 .part v0081DD48_0, 3, 1;
+L_0081DF58 .part/pv L_0081E1D0, 2, 1, 4;
+L_0081DDF8 .part v0081DD48_0, 2, 1;
+L_0081DC40 .part/pv L_00814898, 1, 1, 4;
+L_0081DC98 .part v0081DD48_0, 1, 1;
+L_0081DEA8 .part/pv L_0081E198, 0, 1, 4;
+L_0081DE50 .part v0081DD48_0, 0, 1;
+    .scope S_008182D8;
+T_0 ;
+    %vpi_call 2 40 "$monitor", "outputs:%b %b %b %b", &PV<v0081DDA0_0, 3, 1>, &PV<v0081DDA0_0, 2, 1>, &PV<v0081DDA0_0, 1, 1>, &PV<v0081DDA0_0, 0, 1>;
+    %end;
+    .thread T_0;
+    .scope S_008182D8;
+T_1 ;
+    %delay 10, 0;
+    %set/v v0081DD48_0, 0, 4;
+    %set/v v0081DA30_0, 1, 1;
+    %set/v v0081D9D8_0, 0, 1;
+    %set/v v0081DB90_0, 1, 1;
+    %set/v v0081DF00_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0081DA30_0, 0, 1;
+    %set/v v0081D9D8_0, 0, 1;
+    %set/v v0081DB90_0, 0, 1;
+    %set/v v0081DF00_0, 1, 1;
+    %set/v v0081DD48_0, 0, 4;
+    %delay 10, 0;
+    %set/v v0081DA30_0, 1, 1;
+    %set/v v0081D9D8_0, 0, 1;
+    %set/v v0081DB90_0, 1, 1;
+    %set/v v0081DF00_0, 0, 1;
+    %movi 8, 3, 4;
+    %set/v v0081DD48_0, 8, 4;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "SU.v";
